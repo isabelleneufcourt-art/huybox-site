@@ -1,0 +1,120 @@
+// Schéma Prisma — HUYBOX
+// PostgreSQL (ex. Neon, Vercel Postgres) — nécessaire pour un déploiement
+// sur Vercel/Cloudflare : ces hébergeurs ne conservent pas de fichier
+// SQLite entre les requêtes. DATABASE_URL pointe vers la base cloud.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// Réglages globaux du site, édités depuis /admin/parametres.
+/// Table à une seule ligne (id fixe = 1).
+model SiteSettings {
+  id                   Int      @id @default(1)
+  phoneNumber          String // format E.164, utilisé dans les liens tel:
+  phoneNumberDisplay   String // format lisible affiché à l'écran
+  addressStreet        String
+  addressCity          String
+  addressCountry       String
+  openingHours         String // texte libre, ex "Lun-Dim 6h-23h"
+  googleMapsEmbedUrl   String
+  heroTitle            String
+  heroSubtitle         String
+  virtualTourVideoUrl  String
+  virtualTourThumbnail String?
+  virtualTourEnabled   Boolean  @default(true)
+  ga4Id                String?
+  gtmId                String?
+  updatedAt            DateTime @updatedAt
+}
+
+/// Les 3 tailles de box (8, 10, 15 m³) — gérées en back-office.
+model BoxType {
+  id          String   @id @default(cuid())
+  name        String // ex "Box 10 m³"
+  volumeM3    Float
+  dimensions  String? // ex "2,5 x 2 x 2 m" — masqué si vide
+  equivalence String? // ex "Idéal pour un studio"
+  pricePerM3  Float    @default(8) // €/m³/mois TVAC
+  active      Boolean  @default(true)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+/// Options additionnelles (matériel, étagères, véhicule...). Pas d'assurance.
+model StorageOption {
+  id          String  @id @default(cuid())
+  name        String
+  description String
+  priceInfo   String // texte libre, ex "15 €/mois" ou "Sur devis"
+  active      Boolean @default(true)
+  sortOrder   Int     @default(0)
+}
+
+enum LeadStatus {
+  NEW
+  IN_PROGRESS
+  DONE
+}
+
+/// Messages reçus via le formulaire de contact.
+model Lead {
+  id        String     @id @default(cuid())
+  firstName String
+  lastName  String
+  email     String
+  phone     String?
+  message   String
+  status    LeadStatus @default(NEW)
+  source    String     @default("site") // SEO, SEA, réseaux sociaux, direct...
+  createdAt DateTime   @default(now())
+  notes     LeadNote[]
+}
+
+/// Notes internes ajoutées par l'équipe sur un lead.
+model LeadNote {
+  id        String   @id @default(cuid())
+  leadId    String
+  lead      Lead     @relation(fields: [leadId], references: [id], onDelete: Cascade)
+  body      String
+  createdAt DateTime @default(now())
+}
+
+/// Questions/réponses de la FAQ, groupées par catégorie.
+model FaqItem {
+  id        String   @id @default(cuid())
+  category  String // Général, Tarifs & contrats, Accès & sécurité, Assurance, Déménagement
+  question  String
+  answer    String
+  sortOrder Int      @default(0)
+  published Boolean  @default(true)
+}
+
+/// Articles de blog / conseils.
+model BlogPost {
+  id              String    @id @default(cuid())
+  slug            String    @unique
+  title           String
+  excerpt         String
+  content         String // markdown simple
+  category        String // Déménagement, Organisation, Stockage, Conseils pratiques
+  coverImage      String?
+  published       Boolean   @default(true)
+  publishedAt     DateTime  @default(now())
+  metaTitle       String?
+  metaDescription String?
+}
+
+/// Métadonnées SEO éditables par page statique (title / meta description).
+model SeoMeta {
+  id          String @id @default(cuid())
+  pageKey     String @unique // "home", "notre-centre", "box-tarifs", ...
+  title       String
+  description String
+}

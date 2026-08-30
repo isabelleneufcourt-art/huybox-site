@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Palette de marque — extraite du logo client HUYBOX (cube bleu marine /
+ * rouge). Format HSL "H S% L%" (sans hsl()) pour rester compatible avec les
+ * classes Tailwind `hsl(var(--x) / <alpha-value>)` définies dans
+ * tailwind.config.ts. Si le client fournit un fichier logo plus précis,
+ * régénère ces valeurs avec `npm run extract-colors` (voir README >
+ * "Charte graphique") puis ajuste ici.
+ */
+:root {
+  --color-primary: 219 40% 17%; /* bleu marine du logo (boutons, liens, titres) */
+  --color-primary-light: 219 35% 28%;
+  --color-primary-dark: 219 45% 11%;
+  --color-secondary: 356 70% 46%; /* rouge du logo (CTA "Appeler maintenant", accents) */
+  --color-secondary-light: 356 75% 56%;
+  --color-accent: 160 55% 38%; /* vert (badges "disponible", succès) */
+
+  --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white text-neutral-800 font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading font-semibold text-neutral-900;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .section-y {
+    @apply py-14 sm:py-20;
+  }
+}

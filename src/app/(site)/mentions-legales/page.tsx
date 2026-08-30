@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: "Mentions légales" };
 
 export default async function MentionsLegalesPage() {
   const settings = await getSiteSettings();
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? "Self Storage FX";
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "HUYBOX";
 
   return (
     <Section className="pb-16 pt-12 sm:pt-16">

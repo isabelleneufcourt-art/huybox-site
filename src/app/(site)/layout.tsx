@@ -6,7 +6,7 @@ import { Analytics } from "@/components/analytics/Analytics";
 import { CookieConsent } from "@/components/analytics/CookieConsent";
 import { getSiteSettings } from "@/lib/settings";
 
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? "Self Storage FX";
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "HUYBOX";
 
 export const metadata: Metadata = {
   title: {

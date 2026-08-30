@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getBlogPosts } from "@/lib/blog";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 const STATIC_ROUTES = [
   "",

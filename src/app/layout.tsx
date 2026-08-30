@@ -10,7 +10,7 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 // Métadonnées communes à tout le site (public + back-office). Le titre et
 // la description par défaut du site public sont surchargés dans

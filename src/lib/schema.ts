@@ -1,7 +1,7 @@
 import type { SiteSettingsData } from "@/lib/settings";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME ?? "Self Storage FX";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "HUYBOX";
 
 /** Schema.org SelfStorage + LocalBusiness — utilisé sur l'accueil et "Notre centre". */
 export function localBusinessJsonLd(settings: SiteSettingsData) {

@@ -2,14 +2,22 @@
 // PostgreSQL (ex. Neon, Vercel Postgres) — nécessaire pour un déploiement
 // sur Vercel/Cloudflare : ces hébergeurs ne conservent pas de fichier
 // SQLite entre les requêtes. DATABASE_URL pointe vers la base cloud.
+//
+// DATABASE_URL = connexion "pooled" (via PgBouncer, ex. host "...-pooler...")
+//   → utilisée par l'app à l'exécution (beaucoup de requêtes courtes).
+// DIRECT_URL   = connexion directe (même host SANS "-pooler")
+//   → utilisée uniquement par `prisma migrate` : les migrations posent un
+//     verrou de session (advisory lock) qui ne fonctionne pas à travers un
+//     pooler en mode transaction et provoque un timeout (erreur P1002).
 
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 /// Réglages globaux du site, édités depuis /admin/parametres.

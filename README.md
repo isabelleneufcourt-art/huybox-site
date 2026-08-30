@@ -156,13 +156,19 @@ puis ajuste les valeurs HSL dans `globals.css`.
 Pour obtenir un lien de démonstration fonctionnel (formulaire de contact +
 back-office inclus) sans nom de domaine ni configuration serveur :
 
-1. **Base de données** : crée un projet gratuit sur [neon.tech](https://neon.tech),
-   copie la "Connection string" Postgres.
+1. **Base de données** : crée un projet gratuit sur [neon.tech](https://neon.tech).
+   Neon fournit **deux** connection strings (bascule "Pooled connection"
+   dans son tableau de bord) : copie la version **pooled** (host avec
+   `-pooler`) ET la version **directe** (même host, sans `-pooler`).
 2. **Vercel** : sur [vercel.com](https://vercel.com), connecte-toi avec
    GitHub → "Add New Project" → importe ce dépôt (`huybox-site`).
 3. Avant de cliquer "Deploy", ouvre la section **Environment Variables** et
    colle-y toutes les variables de `.env.example` avec de vraies valeurs :
-   - `DATABASE_URL` → la connection string Neon
+   - `DATABASE_URL` → la connection string Neon **pooled**
+   - `DIRECT_URL` → la connection string Neon **directe** (sans `-pooler`) —
+     nécessaire pour que les migrations puissent poser leur verrou ; sans
+     elle, le build échoue avec l'erreur P1002 "timed out trying to acquire
+     a postgres advisory lock"
    - `ADMIN_SESSION_SECRET` → une valeur aléatoire longue
    - `ADMIN_EMAIL` / `ADMIN_PASSWORD_HASH` → voir "Créer un administrateur"
    - `NEXT_PUBLIC_SITE_URL` → l'URL Vercel donnée après le premier déploiement

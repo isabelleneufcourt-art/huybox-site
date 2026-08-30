@@ -2,8 +2,9 @@
  * Session admin : cookie signé en HMAC-SHA256 via l'API Web Crypto (et non
  * le module Node `crypto`), afin de fonctionner aussi bien dans le
  * middleware (edge runtime) que dans les routes API (runtime Node). Séparé
- * de admin-auth.ts pour que le middleware n'embarque jamais bcryptjs
- * (module Node uniquement, absent du edge runtime).
+ * de admin-auth.ts pour que le middleware n'embarque jamais de code
+ * spécifique au runtime Node (celui-ci ne doit rester compatible qu'avec
+ * le edge runtime).
  */
 
 export const ADMIN_SESSION_COOKIE = "ssfx_admin_session";

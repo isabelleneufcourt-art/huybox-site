@@ -14,7 +14,7 @@ Construit à partir du cahier des charges fourni par le client.
   pas de fichier SQLite entre les requêtes)
 - **Server Actions** pour le back-office (pas d'API REST séparée pour le CMS)
 - Session admin maison : cookie signé HMAC-SHA256 (Web Crypto), mot de passe
-  hashé en bcrypt — pas de dépendance d'authentification externe
+  comparé en temps constant — pas de dépendance d'authentification externe
 
 ## Architecture du projet
 
@@ -86,7 +86,7 @@ string" dans `DATABASE_URL`.
 ```bash
 cp .env.example .env
 # Complète au minimum : DATABASE_URL, ADMIN_SESSION_SECRET, ADMIN_EMAIL,
-# ADMIN_PASSWORD_HASH (voir "Créer un administrateur" ci-dessous) et les
+# ADMIN_PASSWORD (voir "Créer un administrateur" ci-dessous) et les
 # coordonnées du centre.
 
 npm install              # génère aussi le client Prisma (postinstall)
@@ -101,18 +101,10 @@ Ouvre [http://localhost:3000](http://localhost:3000). Le back-office est sur
 ### Créer un administrateur
 
 Un seul compte admin, défini par variables d'environnement (pas de table
-"utilisateurs" à gérer pour un site mono-centre) :
-
-```bash
-node -e "console.log(require('bcryptjs').hashSync('MonMotDePasse', 10))"
-```
-
-Colle le résultat dans `ADMIN_PASSWORD_HASH` de `.env`.
-
-> ⚠️ **Piège classique** : Next.js *expanse* les `$` dans les fichiers
-> `.env` (dotenv-expand). Un hash bcrypt contient plusieurs `$` — il faut
-> les échapper en `\$`, sinon la connexion échoue silencieusement.
-> Exemple : `$2b$10$abc...` → `ADMIN_PASSWORD_HASH="\$2b\$10\$abc..."`.
+"utilisateurs" à gérer pour un site mono-centre) : renseigne simplement
+`ADMIN_EMAIL` et `ADMIN_PASSWORD` (mot de passe en clair, aucun hash à
+générer) dans `.env`, ou dans les variables d'environnement de ton
+hébergeur.
 
 ### Scripts utiles
 
@@ -170,7 +162,7 @@ back-office inclus) sans nom de domaine ni configuration serveur :
      elle, le build échoue avec l'erreur P1002 "timed out trying to acquire
      a postgres advisory lock"
    - `ADMIN_SESSION_SECRET` → une valeur aléatoire longue
-   - `ADMIN_EMAIL` / `ADMIN_PASSWORD_HASH` → voir "Créer un administrateur"
+   - `ADMIN_EMAIL` / `ADMIN_PASSWORD` → voir "Créer un administrateur"
    - `NEXT_PUBLIC_SITE_URL` → l'URL Vercel donnée après le premier déploiement
      (ex. `https://huybox-site.vercel.app`) — à mettre à jour et redéployer
      une fois connue
@@ -193,10 +185,10 @@ back-office inclus) sans nom de domaine ni configuration serveur :
   basculer sur un plan payant Vercel, ou reconstruire le déploiement sur
   Cloudflare Pages (intégration Git, pas de glisser-déposer) + Cloudflare
   D1 ou Neon comme base.
-- **Variables obligatoires** : `DATABASE_URL`, `ADMIN_SESSION_SECRET`
-  (valeur forte et unique), `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH`,
-  `NEXT_PUBLIC_SITE_URL` (domaine réel, sert au sitemap et aux métadonnées
-  SEO).
+- **Variables obligatoires** : `DATABASE_URL`, `DIRECT_URL`,
+  `ADMIN_SESSION_SECRET` (valeur forte et unique), `ADMIN_EMAIL`,
+  `ADMIN_PASSWORD`, `NEXT_PUBLIC_SITE_URL` (domaine réel, sert au sitemap
+  et aux métadonnées SEO).
 - **DNS/HTTPS** : géré automatiquement par Vercel/Cloudflare une fois le
   domaine pointé vers eux (HTTPS obligatoire, cf. RGPD).
 

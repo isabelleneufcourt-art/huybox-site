@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Inbox, Package, HelpCircle, Newspaper, ExternalLink } from "lucide-react";
+import { Inbox, Package, HelpCircle, Newspaper, ExternalLink, Sparkles, CheckCircle2, AlertTriangle } from "lucide-react";
 import { prisma } from "@/lib/prisma";
+import { seedDemoDataAction } from "@/app/admin/(protected)/actions";
 
 async function getStats() {
   try {
@@ -23,7 +24,11 @@ async function getStats() {
 
 const dateFormatter = new Intl.DateTimeFormat("fr-BE", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" });
 
-export default async function AdminDashboardPage() {
+export default async function AdminDashboardPage({
+  searchParams,
+}: {
+  searchParams: { seed?: string };
+}) {
   const stats = await getStats();
 
   const cards = [
@@ -37,6 +42,41 @@ export default async function AdminDashboardPage() {
     <div>
       <h1 className="text-2xl">Tableau de bord</h1>
       <p className="mt-1 text-sm text-neutral-500">Vue d'ensemble de l'activité du site.</p>
+
+      {searchParams.seed === "ok" && (
+        <div className="mt-4 flex items-center gap-2 rounded-xl bg-accent/10 px-4 py-3 text-sm font-medium text-accent">
+          <CheckCircle2 className="h-4 w-4" /> Contenu de démonstration initialisé avec succès.
+        </div>
+      )}
+      {searchParams.seed === "error" && (
+        <div className="mt-4 flex items-center gap-2 rounded-xl bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
+          <AlertTriangle className="h-4 w-4" /> Échec de l'initialisation — vérifie que la base de
+          données est bien migrée (voir README), puis réessaie.
+        </div>
+      )}
+
+      {stats.boxes === 0 && (
+        <div className="mt-4 flex flex-col items-start gap-3 rounded-xl border border-secondary/30 bg-secondary/5 p-5 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-start gap-3">
+            <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
+            <div>
+              <p className="text-sm font-semibold text-neutral-900">Aucun box configuré pour le moment</p>
+              <p className="text-sm text-neutral-600">
+                Initialise le contenu de démonstration (3 box, FAQ, articles de blog, réglages) en
+                un clic — pratique juste après un premier déploiement.
+              </p>
+            </div>
+          </div>
+          <form action={seedDemoDataAction}>
+            <button
+              type="submit"
+              className="whitespace-nowrap rounded-xl bg-secondary px-4 py-2.5 text-sm font-semibold text-white hover:brightness-95"
+            >
+              Initialiser le contenu de démonstration
+            </button>
+          </form>
+        </div>
+      )}
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {cards.map(({ label, value, icon: Icon, href }) => (

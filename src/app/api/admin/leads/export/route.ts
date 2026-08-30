@@ -1,5 +1,9 @@
 import { prisma } from "@/lib/prisma";
 
+// Toujours exécuté par requête (export protégé par le middleware, données
+// mutables) — jamais mis en cache statique au build.
+export const dynamic = "force-dynamic";
+
 function csvEscape(value: string) {
   if (/[",\n]/.test(value)) {
     return `"${value.replace(/"/g, '""')}"`;

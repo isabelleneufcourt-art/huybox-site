@@ -63,6 +63,12 @@ export function ParametresForm({ settings }: { settings: SiteSettingsData }) {
             </label>
             <input id="phoneNumberDisplay" name="phoneNumberDisplay" required defaultValue={settings.phoneNumberDisplay} className={inputClass} />
           </div>
+          <div>
+            <label htmlFor="contactEmail" className={labelClass}>
+              Email de contact
+            </label>
+            <input id="contactEmail" name="contactEmail" type="email" required defaultValue={settings.contactEmail} className={inputClass} />
+          </div>
         </div>
         <div className="grid gap-4 sm:grid-cols-3">
           <div>

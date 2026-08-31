@@ -15,6 +15,7 @@ export async function updateSiteSettingsAction(
   const data = {
     phoneNumber: String(formData.get("phoneNumber") ?? "").trim(),
     phoneNumberDisplay: String(formData.get("phoneNumberDisplay") ?? "").trim(),
+    contactEmail: String(formData.get("contactEmail") ?? "").trim(),
     addressStreet: String(formData.get("addressStreet") ?? "").trim(),
     addressCity: String(formData.get("addressCity") ?? "").trim(),
     addressCountry: String(formData.get("addressCountry") ?? "").trim(),

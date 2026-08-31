@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 export type SiteSettingsData = {
   phoneNumber: string;
   phoneNumberDisplay: string;
+  contactEmail: string;
   addressStreet: string;
   addressCity: string;
   addressCountry: string;
@@ -35,6 +36,7 @@ export const getSiteSettings = cache(async (): Promise<SiteSettingsData> => {
   return {
     phoneNumber: process.env.NEXT_PUBLIC_PHONE_NUMBER ?? "+32 2 000 00 00",
     phoneNumberDisplay: process.env.NEXT_PUBLIC_PHONE_NUMBER_DISPLAY ?? "02 000 00 00",
+    contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "info@huybox.be",
     addressStreet: process.env.NEXT_PUBLIC_ADDRESS_STREET ?? "Rue de l'Entrepôt 12",
     addressCity: process.env.NEXT_PUBLIC_ADDRESS_CITY ?? "1000 Bruxelles",
     addressCountry: process.env.NEXT_PUBLIC_ADDRESS_COUNTRY ?? "Belgique",

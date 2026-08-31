@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default async function ContactPage() {
   const settings = await getSiteSettings();
-  const contactEmail = process.env.SMTP_FROM ?? "contact@self-storage-fx.example";
+  const contactEmail = settings.contactEmail;
 
   return (
     <>

@@ -42,7 +42,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
         addressStreet={settings.addressStreet}
         addressCity={settings.addressCity}
         addressCountry={settings.addressCountry}
-        contactEmail={process.env.SMTP_FROM ?? "contact@self-storage-fx.example"}
+        contactEmail={settings.contactEmail}
       />
       <MobileCallBar
         phoneNumber={settings.phoneNumber}

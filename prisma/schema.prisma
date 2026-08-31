@@ -26,6 +26,7 @@ model SiteSettings {
   id                   Int      @id @default(1)
   phoneNumber          String // format E.164, utilisé dans les liens tel:
   phoneNumberDisplay   String // format lisible affiché à l'écran
+  contactEmail         String   @default("info@huybox.be") // affichée en pied de page + page Contact
   addressStreet        String
   addressCity          String
   addressCountry       String

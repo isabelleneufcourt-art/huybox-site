@@ -5,7 +5,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 const STATIC_ROUTES = [
   "",
-  "/notre-centre",
+  "/notre-batiment",
   "/box-tarifs",
   "/simulateur",
   "/securite",

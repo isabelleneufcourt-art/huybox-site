@@ -13,8 +13,8 @@ const STEPS = [
   },
   {
     icon: FileSignature,
-    title: "3. Signez au centre",
-    description: "Passez au centre pour signer le contrat et déposer vos affaires.",
+    title: "3. Signez au bâtiment",
+    description: "Passez au bâtiment pour signer le contrat et déposer vos affaires.",
   },
   {
     icon: KeyRound,

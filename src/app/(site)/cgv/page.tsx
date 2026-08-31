@@ -10,14 +10,14 @@ export default function CgvPage() {
         <h1 className="text-3xl">Conditions générales de vente</h1>
         <p className="text-sm text-neutral-500">
           Modèle à faire relire par un juriste avant publication — clauses à adapter au contrat
-          signé en centre.
+          signé en bâtiment.
         </p>
         <section>
           <h2 className="text-xl">1. Objet</h2>
           <p>
             Les présentes CGV régissent la location de box de self-stockage. Toute réservation est
             confirmée uniquement après vérification téléphonique des disponibilités et signature
-            d'un contrat au centre.
+            d'un contrat au bâtiment.
           </p>
         </section>
         <section>
@@ -31,12 +31,12 @@ export default function CgvPage() {
           <h2 className="text-xl">3. Assurance</h2>
           <p>
             L'assurance des biens stockés est obligatoire et reste à la charge exclusive du
-            client. Aucune assurance n'est proposée par le centre via ce site.
+            client. Aucune assurance n'est proposée par le bâtiment via ce site.
           </p>
         </section>
         <section>
           <h2 className="text-xl">4. Résiliation</h2>
-          <p>Les modalités de résiliation et de préavis sont précisées dans le contrat signé au centre.</p>
+          <p>Les modalités de résiliation et de préavis sont précisées dans le contrat signé au bâtiment.</p>
         </section>
       </div>
     </Section>

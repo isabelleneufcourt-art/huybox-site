@@ -16,7 +16,7 @@ interface VideoEmbedProps {
  * l'iframe (YouTube/Vimeo) qu'au clic, pour ne pas pénaliser les
  * performances (chargement "lazy" demandé au cahier des charges).
  */
-export function VideoEmbed({ videoUrl, thumbnailUrl, title = "Visite virtuelle du centre", className }: VideoEmbedProps) {
+export function VideoEmbed({ videoUrl, thumbnailUrl, title = "Visite virtuelle du bâtiment", className }: VideoEmbedProps) {
   const [playing, setPlaying] = useState(false);
 
   return (

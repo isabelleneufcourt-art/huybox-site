@@ -3,12 +3,12 @@ import type { SiteSettingsData } from "@/lib/settings";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const siteName = process.env.NEXT_PUBLIC_SITE_NAME || "HUYBOX";
 
-/** Schema.org SelfStorage + LocalBusiness — utilisé sur l'accueil et "Notre centre". */
+/** Schema.org SelfStorage + LocalBusiness — utilisé sur l'accueil et "Notre bâtiment". */
 export function localBusinessJsonLd(settings: SiteSettingsData) {
   return {
     "@context": "https://schema.org",
     "@type": "SelfStorage",
-    "@id": `${siteUrl}/#centre`,
+    "@id": `${siteUrl}/#bâtiment`,
     name: siteName,
     url: siteUrl,
     telephone: settings.phoneNumber,

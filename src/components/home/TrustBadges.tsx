@@ -4,7 +4,7 @@ const BADGES: { icon: LucideIcon; title: string; description: string }[] = [
   {
     icon: ShieldCheck,
     title: "Sécurisé 24h/24",
-    description: "Contrôle d'accès, alarme et vidéosurveillance sur l'ensemble du centre.",
+    description: "Contrôle d'accès, alarme et vidéosurveillance sur l'ensemble du bâtiment.",
   },
   {
     icon: Clock,
@@ -19,7 +19,7 @@ const BADGES: { icon: LucideIcon; title: string; description: string }[] = [
   {
     icon: MapPin,
     title: "Bien situé",
-    description: "Un centre facilement accessible, avec zone de chargement dédiée.",
+    description: "Un bâtiment facilement accessible, avec zone de chargement dédiée.",
   },
 ];
 

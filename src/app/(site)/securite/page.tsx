@@ -12,7 +12,7 @@ const DEVICES = [
   {
     icon: KeyRound,
     title: "Contrôle d'accès",
-    description: "Code personnel, badge ou interphone pour entrer dans le centre et accéder à votre couloir de box.",
+    description: "Code personnel, badge ou interphone pour entrer dans le bâtiment et accéder à votre couloir de box.",
   },
   {
     icon: BellRing,
@@ -38,7 +38,7 @@ export default function SecuritePage() {
         <SectionHeading
           eyebrow="Sécurité & garanties"
           title="Vos affaires en toute sécurité"
-          description="Notre centre est équipé de dispositifs de sécurité pensés pour protéger vos biens en permanence."
+          description="Notre bâtiment est équipé de dispositifs de sécurité pensés pour protéger vos biens en permanence."
         />
         <div className="grid gap-6 sm:grid-cols-2">
           {DEVICES.map(({ icon: Icon, title, description }) => (

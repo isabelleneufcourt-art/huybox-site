@@ -9,7 +9,7 @@ import { getSiteSettings } from "@/lib/settings";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contactez notre centre de self-stockage : formulaire de contact, coordonnées, horaires et téléphone pour vérifier les disponibilités.",
+    "Contactez notre bâtiment de self-stockage : formulaire de contact, coordonnées, horaires et téléphone pour vérifier les disponibilités.",
 };
 
 export default async function ContactPage() {
@@ -40,8 +40,8 @@ export default async function ContactPage() {
               </li>
             </ul>
             <MapEmbed embedUrl={settings.googleMapsEmbedUrl} className="aspect-video" />
-            <a href="/notre-centre#visite-virtuelle" className="inline-block text-sm font-semibold text-primary hover:underline">
-              Voir la visite virtuelle du centre →
+            <a href="/notre-batiment#visite-virtuelle" className="inline-block text-sm font-semibold text-primary hover:underline">
+              Voir la visite virtuelle du bâtiment →
             </a>
           </div>
         </div>

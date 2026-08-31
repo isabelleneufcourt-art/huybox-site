@@ -1,6 +1,6 @@
 export const MAIN_NAV = [
   { href: "/", label: "Accueil" },
-  { href: "/notre-centre", label: "Notre centre" },
+  { href: "/notre-batiment", label: "Notre bâtiment" },
   { href: "/box-tarifs", label: "Box & tarifs" },
   { href: "/simulateur", label: "Simulateur" },
   { href: "/securite", label: "Sécurité" },

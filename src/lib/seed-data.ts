@@ -49,9 +49,9 @@ export async function seedDemoData(prisma: PrismaClient) {
   }
 
   const options = [
-    { name: "Étagères", description: "Optimisez l'espace de votre box.", priceInfo: "Sur demande au centre", sortOrder: 1 },
+    { name: "Étagères", description: "Optimisez l'espace de votre box.", priceInfo: "Sur demande au bâtiment", sortOrder: 1 },
     { name: "Matériel de manutention", description: "Diables, sangles et couvertures de protection.", priceInfo: "Prêt gratuit sur place", sortOrder: 2 },
-    { name: "Véhicule utilitaire", description: "Location d'un utilitaire pour votre transport.", priceInfo: "Sur devis au centre", sortOrder: 3 },
+    { name: "Véhicule utilitaire", description: "Location d'un utilitaire pour votre transport.", priceInfo: "Sur devis au bâtiment", sortOrder: 3 },
   ];
   for (const option of options) {
     const existing = await prisma.storageOption.findFirst({ where: { name: option.name } });

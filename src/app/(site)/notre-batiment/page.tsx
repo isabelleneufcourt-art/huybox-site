@@ -8,23 +8,23 @@ import { ReservationBlock } from "@/components/booking/ReservationBlock";
 import { getSiteSettings } from "@/lib/settings";
 
 export const metadata: Metadata = {
-  title: "Notre centre",
+  title: "Notre bâtiment",
   description:
-    "Découvrez notre centre de self-stockage : adresse, horaires, visite virtuelle vidéo, galerie photo et localisation.",
+    "Découvrez notre bâtiment de self-stockage : adresse, horaires, visite virtuelle vidéo, galerie photo et localisation.",
 };
 
-export default async function NotreCentrePage() {
+export default async function NotreBatimentPage() {
   const settings = await getSiteSettings();
   const mapsSearchQuery = encodeURIComponent(`${settings.addressStreet}, ${settings.addressCity}`);
 
   return (
     <>
       <Section tone="neutral" className="pb-10 pt-12 sm:pt-16">
-        <SectionHeading eyebrow="Notre centre" title="Un centre neuf, propre et sécurisé" />
+        <SectionHeading eyebrow="Notre bâtiment" title="Un bâtiment neuf, propre et sécurisé" />
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="space-y-4 text-neutral-700">
             <p>
-              Notre centre de self-stockage a été conçu pour vous offrir un espace propre,
+              Notre bâtiment de self-stockage a été conçu pour vous offrir un espace propre,
               ventilé et facilement accessible, sans escaliers, pour déposer et récupérer vos
               affaires en toute simplicité.
             </p>
@@ -38,7 +38,7 @@ export default async function NotreCentrePage() {
             <p>
               Locaux récents, entretenus régulièrement et pensés pour la tranquillité de nos
               clients : circulation aisée, chariots disponibles et zone de chargement dédiée à
-              l'entrée du centre.
+              l'entrée du bâtiment.
             </p>
           </div>
           <MapEmbed embedUrl={settings.googleMapsEmbedUrl} className="aspect-video lg:aspect-auto lg:h-full" />
@@ -49,7 +49,7 @@ export default async function NotreCentrePage() {
           rel="noopener noreferrer"
           className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
         >
-          Itinéraire vers le centre <ExternalLink className="h-3.5 w-3.5" />
+          Itinéraire vers le bâtiment <ExternalLink className="h-3.5 w-3.5" />
         </a>
       </Section>
 
@@ -57,7 +57,7 @@ export default async function NotreCentrePage() {
         <Section id="visite-virtuelle">
           <SectionHeading
             eyebrow="Visite virtuelle"
-            title="Découvrez notre centre en vidéo"
+            title="Découvrez notre bâtiment en vidéo"
             description="De l'entrée aux box, pour vous rendre compte de la propreté, de la sécurité et de l'accessibilité, avant même de vous déplacer."
           />
           <VideoEmbed videoUrl={settings.virtualTourVideoUrl} thumbnailUrl={settings.virtualTourThumbnail} />
@@ -65,7 +65,7 @@ export default async function NotreCentrePage() {
       )}
 
       <Section tone="neutral">
-        <SectionHeading eyebrow="Galerie" title="Le centre en images" />
+        <SectionHeading eyebrow="Galerie" title="Le bâtiment en images" />
         <PhotoGallery />
       </Section>
 

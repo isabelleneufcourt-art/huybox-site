@@ -49,14 +49,14 @@ export default async function HomePage() {
             <div>
               <SectionHeading
                 eyebrow="Visite virtuelle"
-                title="Découvrez notre centre en vidéo"
+                title="Découvrez notre bâtiment en vidéo"
                 description="De l'entrée aux box, faites-vous une idée précise de la propreté, de la sécurité et de l'accessibilité de nos locaux — sans vous déplacer."
               />
               <Link
-                href="/notre-centre"
+                href="/notre-batiment"
                 className="inline-flex items-center gap-1.5 font-semibold text-primary hover:underline"
               >
-                Découvrir le centre en vidéo <ArrowRight className="h-4 w-4" />
+                Découvrir le bâtiment en vidéo <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>

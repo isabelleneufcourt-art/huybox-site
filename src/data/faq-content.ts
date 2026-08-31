@@ -20,19 +20,19 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
     category: "Général",
     question: "Qu'est-ce que le self-stockage ?",
     answer:
-      "Le self-stockage consiste à louer un box privatif dans un centre sécurisé pour y entreposer vos affaires aussi longtemps que vous le souhaitez, avec un accès autonome 7j/7.",
+      "Le self-stockage consiste à louer un box privatif dans un bâtiment sécurisé pour y entreposer vos affaires aussi longtemps que vous le souhaitez, avec un accès autonome 7j/7.",
   },
   {
     category: "Général",
-    question: "À qui s'adresse votre centre ?",
+    question: "À qui s'adresse votre bâtiment ?",
     answer:
-      "Notre centre s'adresse à toute personne ayant besoin d'espace supplémentaire : déménagement, rénovation, désencombrement, stockage saisonnier, etc.",
+      "Notre bâtiment s'adresse à toute personne ayant besoin d'espace supplémentaire : déménagement, rénovation, désencombrement, stockage saisonnier, etc.",
   },
   {
     category: "Général",
     question: "Proposez-vous le stockage entre particuliers ?",
     answer:
-      "Non, nous ne proposons pas de mise en relation entre particuliers. Nos box sont loués directement par notre centre.",
+      "Non, nous ne proposons pas de mise en relation entre particuliers. Nos box sont loués directement par notre bâtiment.",
   },
   {
     category: "Général",
@@ -42,9 +42,9 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
   },
   {
     category: "Général",
-    question: "Puis-je visiter le centre avant de réserver ?",
+    question: "Puis-je visiter le bâtiment avant de réserver ?",
     answer:
-      "Oui, vous pouvez découvrir notre centre grâce à la visite virtuelle vidéo disponible sur la page \"Notre centre\", et organiser une visite sur place en nous appelant.",
+      "Oui, vous pouvez découvrir notre bâtiment grâce à la visite virtuelle vidéo disponible sur la page \"Notre bâtiment\", et organiser une visite sur place en nous appelant.",
   },
   // Tarifs & contrats
   {
@@ -62,7 +62,7 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
     category: "Tarifs & contrats",
     question: "Comment réserver un box ?",
     answer:
-      "La réservation se fait uniquement par téléphone : nous vérifions ensemble les disponibilités, puis vous passez au centre pour signer le contrat.",
+      "La réservation se fait uniquement par téléphone : nous vérifions ensemble les disponibilités, puis vous passez au bâtiment pour signer le contrat.",
   },
   {
     category: "Tarifs & contrats",
@@ -74,34 +74,34 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
     category: "Tarifs & contrats",
     question: "Quel est le délai de préavis pour résilier ?",
     answer:
-      "Le préavis est précisé dans votre contrat signé au centre. Contactez-nous pour connaître les modalités exactes.",
+      "Le préavis est précisé dans votre contrat signé au bâtiment. Contactez-nous pour connaître les modalités exactes.",
   },
   {
     category: "Tarifs & contrats",
     question: "Quels moyens de paiement acceptez-vous ?",
-    answer: "Virement, domiciliation ou carte bancaire, à confirmer directement avec notre équipe au centre.",
+    answer: "Virement, domiciliation ou carte bancaire, à confirmer directement avec notre équipe au bâtiment.",
   },
   // Accès & sécurité
   {
     category: "Accès & sécurité",
-    question: "Quels sont les horaires d'accès au centre ?",
-    answer: "Le centre est accessible 7j/7, de 6h à 23h.",
+    question: "Quels sont les horaires d'accès au bâtiment ?",
+    answer: "Le bâtiment est accessible 7j/7, de 6h à 23h.",
   },
   {
     category: "Accès & sécurité",
     question: "Comment fonctionne le contrôle d'accès ?",
     answer:
-      "L'accès se fait via un code personnel, un badge ou un interphone selon les zones du centre, attribué au moment de la signature du contrat.",
+      "L'accès se fait via un code personnel, un badge ou un interphone selon les zones du bâtiment, attribué au moment de la signature du contrat.",
   },
   {
     category: "Accès & sécurité",
-    question: "Le centre est-il vidéosurveillé ?",
+    question: "Le bâtiment est-il vidéosurveillé ?",
     answer: "Oui, des caméras sont installées aux points d'accès et dans les couloirs communs.",
   },
   {
     category: "Accès & sécurité",
     question: "Y a-t-il une alarme incendie ?",
-    answer: "Oui, le centre est équipé d'une détection incendie active 24h/24.",
+    answer: "Oui, le bâtiment est équipé d'une détection incendie active 24h/24.",
   },
   {
     category: "Accès & sécurité",
@@ -111,7 +111,7 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
   {
     category: "Accès & sécurité",
     question: "Puis-je venir accompagné pour déposer mes affaires ?",
-    answer: "Oui, vous pouvez venir accompagné et utiliser la zone de chargement dédiée à l'entrée du centre.",
+    answer: "Oui, vous pouvez venir accompagné et utiliser la zone de chargement dédiée à l'entrée du bâtiment.",
   },
   // Assurance
   {
@@ -130,7 +130,7 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
     category: "Assurance",
     question: "Que se passe-t-il en cas de sinistre ?",
     answer:
-      "En cas de sinistre, contactez immédiatement notre équipe au centre ainsi que votre assureur pour déclarer le sinistre.",
+      "En cas de sinistre, contactez immédiatement notre équipe au bâtiment ainsi que votre assureur pour déclarer le sinistre.",
   },
   // Déménagement / stockage
   {

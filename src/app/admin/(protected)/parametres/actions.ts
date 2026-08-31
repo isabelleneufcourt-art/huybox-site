@@ -3,7 +3,15 @@
 import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/prisma";
 
-export async function updateSiteSettingsAction(formData: FormData) {
+export interface SaveSettingsState {
+  status: "idle" | "ok" | "error";
+  message?: string;
+}
+
+export async function updateSiteSettingsAction(
+  _prevState: SaveSettingsState,
+  formData: FormData
+): Promise<SaveSettingsState> {
   const data = {
     phoneNumber: String(formData.get("phoneNumber") ?? "").trim(),
     phoneNumberDisplay: String(formData.get("phoneNumberDisplay") ?? "").trim(),
@@ -21,12 +29,19 @@ export async function updateSiteSettingsAction(formData: FormData) {
     gtmId: String(formData.get("gtmId") ?? "").trim() || null,
   };
 
-  await prisma.siteSettings.upsert({
-    where: { id: 1 },
-    create: { id: 1, ...data },
-    update: data,
-  });
+  try {
+    await prisma.siteSettings.upsert({
+      where: { id: 1 },
+      create: { id: 1, ...data },
+      update: data,
+    });
+  } catch (err) {
+    console.error("Échec de l'enregistrement des paramètres :", err);
+    const detail = err instanceof Error ? err.message : String(err);
+    return { status: "error", message: detail };
+  }
 
   // Ces réglages sont lus sur quasiment toutes les pages publiques.
   revalidatePath("/", "layout");
+  return { status: "ok" };
 }

@@ -1,0 +1,475 @@
+  .huybox-sim-page{
+    --navy:#0f273f;
+    --navy-light:#1b3a5c;
+    --navy-soft:#eef2f6;
+    --red:#d70c2a;
+    --red-dark:#b30a22;
+    --ink:#1c2733;
+    --muted:#5b6b7c;
+    --line:#e2e8ef;
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --radius:14px;
+    --shadow:0 8px 24px rgba(15,39,63,0.08);
+  }
+  .huybox-sim-page{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.5;
+  }
+  .huybox-sim-page img{max-width:100%;display:block;}
+  .huybox-sim-page a{color:inherit;}
+  .huybox-sim-page button{font-family:inherit;}
+
+  /* ---------- Header ---------- */
+  .huybox-sim-page .topbar{
+    background:#fff;
+    border-bottom:1px solid var(--line);
+  }
+  .huybox-sim-page .topbar-inner{
+    max-width:1180px;
+    margin:0 auto;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .huybox-sim-page .topbar-logo img{height:52px;width:auto;}
+  .huybox-sim-page .topbar-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .huybox-sim-page .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 18px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:14px;
+    text-decoration:none;
+    border:2px solid transparent;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    white-space:nowrap;
+  }
+  .huybox-sim-page .btn:hover{transform:translateY(-1px);}
+  .huybox-sim-page .btn-primary{background:var(--red);color:#fff;box-shadow:0 6px 16px rgba(215,12,42,0.28);}
+  .huybox-sim-page .btn-primary:hover{background:var(--red-dark);}
+  .huybox-sim-page .btn-outline{background:transparent;border-color:var(--navy);color:var(--navy);}
+  .huybox-sim-page .btn-outline:hover{background:var(--navy);color:#fff;}
+  .huybox-sim-page .btn-block{width:100%;justify-content:center;}
+
+  /* ---------- Hero ---------- */
+  .huybox-sim-page .hero{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);
+    color:#fff;
+    padding:48px 20px 64px;
+    position:relative;
+    overflow:hidden;
+  }
+  .huybox-sim-page .hero::after{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:260px; height:260px;
+    background:var(--red);
+    opacity:.15;
+    border-radius:60px;
+    transform:rotate(20deg);
+  }
+  .huybox-sim-page .hero-inner{
+    max-width:1180px;
+    margin:0 auto;
+    position:relative;
+  }
+  .huybox-sim-page .eyebrow{
+    display:inline-block;
+    background:rgba(215,12,42,0.18);
+    color:#ff8b9c;
+    border:1px solid rgba(215,12,42,0.4);
+    padding:5px 14px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    margin-bottom:16px;
+  }
+  .huybox-sim-page .hero h1{
+    font-size:clamp(28px,4vw,42px);
+    margin:0 0 12px;
+    font-weight:800;
+    letter-spacing:-0.02em;
+  }
+  .huybox-sim-page .hero p{
+    max-width:640px;
+    color:#c7d3e0;
+    font-size:16px;
+    margin:0;
+  }
+
+  /* ---------- Layout ---------- */
+  .huybox-sim-page .wrap{
+    max-width:1180px;
+    margin:-32px auto 60px;
+    padding:0 20px;
+    display:grid;
+    grid-template-columns:1fr 360px;
+    gap:24px;
+    align-items:start;
+  }
+  @media (max-width:900px){
+    .huybox-sim-page .wrap{grid-template-columns:1fr;}
+    .huybox-sim-page .summary{order:-1; position:static;}
+  }
+
+  .huybox-sim-page .card{
+    background:var(--card);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    border:1px solid var(--line);
+  }
+
+  /* ---------- Category tabs ---------- */
+  .huybox-sim-page .tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    padding:28px 18px 18px;
+    border-bottom:1px solid var(--line);
+  }
+  .huybox-sim-page .tab{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 14px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--navy-soft);
+    color:var(--navy);
+    font-weight:600;
+    font-size:13.5px;
+    cursor:pointer;
+    user-select:none;
+    transition:all .15s ease;
+  }
+  .huybox-sim-page .tab:hover{border-color:var(--navy);}
+  .huybox-sim-page .tab.active{
+    background:var(--navy);
+    color:#fff;
+    border-color:var(--navy);
+  }
+  .huybox-sim-page .tab .count{
+    background:rgba(255,255,255,0.25);
+    border-radius:999px;
+    font-size:11px;
+    padding:1px 7px;
+    min-width:18px;
+    text-align:center;
+  }
+  .huybox-sim-page .tab:not(.active) .count{background:rgba(15,39,63,0.1);}
+  .huybox-sim-page .tab .count.zero{display:none;}
+
+  /* ---------- Item list ---------- */
+  .huybox-sim-page .panel{padding:8px 18px 20px;}
+  .huybox-sim-page .panel-title{
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--muted);
+    font-weight:700;
+    margin:18px 4px 10px;
+  }
+  .huybox-sim-page .item-row{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:12px;
+    padding:12px 8px;
+    border-bottom:1px solid var(--line);
+  }
+  .huybox-sim-page .item-row:last-child{border-bottom:none;}
+  .huybox-sim-page .item-icon-wrap{
+    flex-shrink:0;
+    width:44px;height:44px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--navy-soft);
+    border-radius:10px;
+  }
+  .huybox-sim-page .item-icon-wrap svg{display:block;}
+  .huybox-sim-page .item-info{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1;}
+  .huybox-sim-page .item-label{font-weight:600;font-size:14.5px;color:var(--ink);}
+  .huybox-sim-page .item-vol{font-size:12.5px;color:var(--muted);}
+  .huybox-sim-page .stepper{
+    display:flex;
+    align-items:center;
+    gap:0;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    flex-shrink:0;
+  }
+  .huybox-sim-page .step-btn{
+    width:32px;height:32px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--navy-soft);
+    border:none;
+    color:var(--navy);
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    line-height:1;
+  }
+  .huybox-sim-page .step-btn:hover{background:#dde6ef;}
+  .huybox-sim-page .step-btn:active{background:var(--navy);color:#fff;}
+  .huybox-sim-page .step-val{
+    width:34px;
+    text-align:center;
+    font-weight:700;
+    font-size:14px;
+    color:var(--ink);
+  }
+
+  /* ---------- Custom item calculator ---------- */
+  .huybox-sim-page .custom-box{
+    margin:18px 4px 4px;
+    padding:16px;
+    background:var(--navy-soft);
+    border-radius:12px;
+    border:1px dashed #b9c8d8;
+  }
+  .huybox-sim-page .custom-box h4{margin:0 0 4px;font-size:14.5px;color:var(--navy);}
+  .huybox-sim-page .custom-box p{margin:0 0 12px;font-size:12.5px;color:var(--muted);}
+  .huybox-sim-page .custom-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr) auto auto;
+    gap:8px;
+    align-items:end;
+  }
+  @media (max-width:640px){
+    .huybox-sim-page .custom-grid{grid-template-columns:1fr 1fr; }
+  }
+  .huybox-sim-page .field label{
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:var(--muted);
+    margin-bottom:4px;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  .huybox-sim-page .field input{
+    width:100%;
+    padding:9px 10px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    font-size:14px;
+    background:#fff;
+  }
+  .huybox-sim-page .field input:focus{outline:2px solid var(--navy-light);outline-offset:1px;}
+  .huybox-sim-page .custom-add{
+    background:var(--navy);
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    padding:9px 14px;
+    font-weight:700;
+    font-size:13px;
+    cursor:pointer;
+    height:38px;
+  }
+  .huybox-sim-page .custom-add:hover{background:var(--navy-light);}
+  .huybox-sim-page .custom-list{margin-top:12px;display:flex;flex-direction:column;gap:6px;}
+  .huybox-sim-page .custom-list-item{
+    display:flex;justify-content:space-between;align-items:center;
+    background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:8px 10px;font-size:13px;
+  }
+  .huybox-sim-page .custom-list-item button{
+    border:none;background:none;color:var(--red);font-weight:700;cursor:pointer;font-size:16px;line-height:1;
+  }
+
+  /* ---------- Summary panel ---------- */
+  .huybox-sim-page .summary{
+    position:sticky;
+    top:20px;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .huybox-sim-page .summary h3{
+    margin:0;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--muted);
+    font-weight:700;
+  }
+  .huybox-sim-page .vol-total{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .huybox-sim-page .vol-total .num{
+    font-size:40px;
+    font-weight:800;
+    color:var(--navy);
+    letter-spacing:-0.02em;
+  }
+  .huybox-sim-page .vol-total .unit{font-size:16px;font-weight:700;color:var(--muted);}
+  .huybox-sim-page .vol-sub{font-size:12.5px;color:var(--muted);margin-top:-8px;}
+
+  .huybox-sim-page .gauge{margin-top:4px;}
+  .huybox-sim-page .gauge-track{
+    position:relative;
+    height:10px;
+    border-radius:999px;
+    background:var(--navy-soft);
+    overflow:hidden;
+  }
+  .huybox-sim-page .gauge-fill{
+    position:absolute;left:0;top:0;bottom:0;
+    background:linear-gradient(90deg,var(--red),var(--navy));
+    border-radius:999px;
+    width:0%;
+    transition:width .25s ease;
+  }
+  .huybox-sim-page .gauge-labels{
+    display:flex;justify-content:space-between;
+    font-size:10.5px;color:var(--muted);margin-top:6px;
+  }
+
+  .huybox-sim-page .reco-card{
+    background:var(--navy);
+    color:#fff;
+    border-radius:12px;
+    padding:16px 18px;
+    position:relative;
+    overflow:hidden;
+  }
+  .huybox-sim-page .reco-card::after{
+    content:"";
+    position:absolute;right:-30px;bottom:-30px;
+    width:120px;height:120px;
+    background:var(--red);
+    opacity:.2;
+    border-radius:30px;
+    transform:rotate(15deg);
+  }
+  .huybox-sim-page .reco-label{
+    font-size:11px;text-transform:uppercase;letter-spacing:.06em;
+    color:#a9bcd0;font-weight:700;margin-bottom:6px;
+  }
+  .huybox-sim-page .reco-name{font-size:22px;font-weight:800;margin-bottom:2px;position:relative;}
+  .huybox-sim-page .reco-m2{font-size:13px;color:#c7d3e0;position:relative;}
+  .huybox-sim-page .reco-price{
+    font-size:15px;font-weight:800;color:#fff;position:relative;
+    margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.18);
+  }
+  .huybox-sim-page .reco-price b{color:var(--red);font-size:19px;}
+
+  /* ---------- Isometric fill visualisation ---------- */
+  .huybox-sim-page .fillviz-section h3{
+    margin:0 0 10px;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--muted);
+    font-weight:700;
+  }
+  .huybox-sim-page .iso-room-wrap{
+    display:flex;
+    justify-content:center;
+    background:linear-gradient(180deg,#f7f5f1,#efece6);
+    border-radius:12px;
+    border:1px solid var(--line);
+    padding:8px 0 0;
+  }
+  .huybox-sim-page .iso-room-wrap svg{
+    width:100%;
+    max-width:280px;
+    height:auto;
+    display:block;
+  }
+  .huybox-sim-page .iso-caption{
+    font-size:12px;
+    color:var(--muted);
+    text-align:center;
+    padding-top:8px;
+  }
+  /* Entrée progressive des objets dans la scène : chacun "descend" et
+     apparaît avec un léger décalage par rapport au précédent. */
+  @keyframes huyboxIsoEnter{
+    from{ opacity:0; transform:translateY(-42px) scale(0.92); }
+    to{ opacity:1; transform:translateY(0) scale(1); }
+  }
+  .huybox-sim-page .iso-enter{
+    animation:huyboxIsoEnter 0.6s cubic-bezier(.25,.7,.3,1.15) both;
+    transform-box:fill-box;
+    transform-origin:50% 100%;
+  }
+  .huybox-sim-page .iso-stack-badge{
+    font-family:inherit;
+    font-weight:800;
+    font-size:11px;
+    fill:#fff;
+  }
+
+  .huybox-sim-page .breakdown{
+    display:flex;flex-direction:column;gap:6px;
+    font-size:13px;
+  }
+  .huybox-sim-page .breakdown-row{
+    display:flex;justify-content:space-between;
+    color:var(--muted);
+  }
+  .huybox-sim-page .breakdown-row b{color:var(--ink);}
+
+  .huybox-sim-page .summary-actions{display:flex;flex-direction:column;gap:8px;}
+  .huybox-sim-page .reset-link{
+    text-align:center;
+    font-size:12.5px;
+    color:var(--muted);
+    background:none;border:none;
+    cursor:pointer;
+    text-decoration:underline;
+    padding:4px;
+  }
+  .huybox-sim-page .disclaimer{
+    font-size:11.5px;
+    color:var(--muted);
+    border-top:1px solid var(--line);
+    padding-top:12px;
+  }
+
+  /* ---------- Tiers table (bottom) ---------- */
+  .huybox-sim-page .tiers-section{max-width:1180px;margin:0 auto 60px;padding:0 20px;}
+  .huybox-sim-page .tiers-section h2{
+    font-size:22px;color:var(--navy);margin-bottom:6px;
+  }
+  .huybox-sim-page .tiers-section > p{color:var(--muted);font-size:14px;margin-top:0;margin-bottom:20px;}
+  .huybox-sim-page .tiers-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:12px;
+  }
+  .huybox-sim-page .tier-card{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:16px;text-align:center;transition:border-color .15s ease, transform .15s ease;
+  }
+  .huybox-sim-page .tier-card.current{
+    border-color:var(--red);
+    box-shadow:0 6px 18px rgba(215,12,42,0.15);
+    transform:translateY(-2px);
+  }
+  .huybox-sim-page .tier-card .t-name{font-weight:800;color:var(--navy);font-size:15px;}
+  .huybox-sim-page .tier-card .t-dims{font-size:13.5px;color:var(--ink);font-weight:700;margin-top:4px;}
+  .huybox-sim-page .tier-card .t-m2{font-size:12.5px;color:var(--muted);margin-top:2px;}
+  .huybox-sim-page .tier-card .t-price{font-size:14px;font-weight:800;color:var(--red);margin-top:8px;}
+  .huybox-sim-page .tier-card .t-vol{font-size:11.5px;color:#9aa8b8;margin-top:4px;}

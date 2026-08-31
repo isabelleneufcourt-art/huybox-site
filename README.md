@@ -120,22 +120,20 @@ hébergeur.
 
 ## Charte graphique
 
-Le logo fourni par le client (**HUYBOX**, cube bleu marine / rouge) a été
-analysé visuellement pour extraire deux couleurs de marque, définies comme
-variables CSS dans `src/app/globals.css` :
+Le logo officiel du client (**HUYBOX**, cube bleu marine / rouge,
+`public/images/huybox-logo.jpg`) est utilisé tel quel par
+`src/components/layout/Logo.tsx`. Les couleurs de marque définies comme
+variables CSS dans `src/app/globals.css` reprennent les valeurs exactes de
+sa charte (`#0f273f` / `#d70c2a`, récupérées du fichier client du
+simulateur de volume) :
 
 ```css
---color-primary: 219 40% 17%;   /* bleu marine — titres, boutons, liens */
---color-secondary: 356 70% 46%; /* rouge — CTA "Appeler maintenant", accents */
+--color-primary: 210 62% 15%;   /* #0f273f — bleu marine */
+--color-secondary: 351 89% 45%; /* #d70c2a — rouge */
 ```
 
-Le composant `src/components/layout/Logo.tsx` reconstitue le logo en SVG
-inline (cube isométrique + wordmark) avec ces couleurs, en attendant le
-fichier logo définitif (SVG/PNG haute résolution) du client — il suffira
-alors de remplacer le contenu de `Logo.tsx` par un `<img>`/`next/image`
-pointant vers le fichier fourni.
-
-Si un logo plus précis est fourni par la suite, régénère la palette avec :
+Si un fichier logo différent est fourni par la suite, remplace
+`public/images/huybox-logo.jpg` et régénère la palette avec :
 
 ```bash
 npm run extract-colors -- chemin/vers/logo.png
@@ -218,8 +216,6 @@ supplémentaire nécessaire pour recevoir les demandes.
 
 ## Ce qui reste à brancher côté client
 
-- **Logo définitif** (fichier haute résolution) → remplacer
-  `src/components/layout/Logo.tsx`.
 - **Vraies photos du centre** → remplacer la galerie placeholder
   (`src/components/media/PhotoGallery.tsx`) par de vrais fichiers, une fois
   un stockage média choisi (ex. Cloudinary, S3, ou upload local `/public`).

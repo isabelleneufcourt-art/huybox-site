@@ -3,19 +3,18 @@
 @tailwind utilities;
 
 /*
- * Palette de marque — extraite du logo client HUYBOX (cube bleu marine /
- * rouge). Format HSL "H S% L%" (sans hsl()) pour rester compatible avec les
+ * Palette de marque — couleurs exactes du fichier client (simulateur de
+ * volume fourni), qui définissait déjà --navy:#0f273f et --red:#d70c2a.
+ * Format HSL "H S% L%" (sans hsl()) pour rester compatible avec les
  * classes Tailwind `hsl(var(--x) / <alpha-value>)` définies dans
- * tailwind.config.ts. Si le client fournit un fichier logo plus précis,
- * régénère ces valeurs avec `npm run extract-colors` (voir README >
- * "Charte graphique") puis ajuste ici.
+ * tailwind.config.ts.
  */
 :root {
-  --color-primary: 219 40% 17%; /* bleu marine du logo (boutons, liens, titres) */
-  --color-primary-light: 219 35% 28%;
-  --color-primary-dark: 219 45% 11%;
-  --color-secondary: 356 70% 46%; /* rouge du logo (CTA "Appeler maintenant", accents) */
-  --color-secondary-light: 356 75% 56%;
+  --color-primary: 210 62% 15%; /* #0f273f — bleu marine (boutons, liens, titres) */
+  --color-primary-light: 211 55% 23%; /* #1b3a5c */
+  --color-primary-dark: 210 65% 10%;
+  --color-secondary: 351 89% 45%; /* #d70c2a — rouge (CTA "Appeler maintenant", accents) */
+  --color-secondary-light: 351 89% 55%;
   --color-accent: 160 55% 38%; /* vert (badges "disponible", succès) */
 
   --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;

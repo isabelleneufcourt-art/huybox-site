@@ -86,9 +86,16 @@ export default async function AdminParametresPage() {
           <legend className="px-1 text-sm font-semibold text-neutral-900">Visite virtuelle vidéo</legend>
           <div>
             <label htmlFor="virtualTourVideoUrl" className={labelClass}>
-              URL d'intégration vidéo (YouTube/Vimeo "embed")
+              URL d'intégration vidéo (YouTube/Vimeo "embed") — laisser vide
+              tant qu'il n'y a pas de vraie vidéo
             </label>
-            <input id="virtualTourVideoUrl" name="virtualTourVideoUrl" required defaultValue={settings.virtualTourVideoUrl} className={inputClass} />
+            <input
+              id="virtualTourVideoUrl"
+              name="virtualTourVideoUrl"
+              defaultValue={settings.virtualTourVideoUrl}
+              className={inputClass}
+              placeholder="https://www.youtube.com/embed/…"
+            />
           </div>
           <div>
             <label htmlFor="virtualTourThumbnail" className={labelClass}>

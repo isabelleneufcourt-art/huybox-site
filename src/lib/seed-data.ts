@@ -28,9 +28,7 @@ export async function seedDemoData(prisma: PrismaClient) {
         "https://www.google.com/maps?q=Bruxelles&output=embed",
       heroTitle: "Box de stockage sécurisés, disponibles 7j/7",
       heroSubtitle: "Accès 7j/7 · Sans engagement · Sécurisé 24h/24",
-      virtualTourVideoUrl:
-        process.env.NEXT_PUBLIC_VIRTUAL_TOUR_VIDEO_URL ??
-        "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      virtualTourVideoUrl: process.env.NEXT_PUBLIC_VIRTUAL_TOUR_VIDEO_URL ?? "",
       virtualTourEnabled: true,
       ga4Id: process.env.NEXT_PUBLIC_GA4_ID || null,
       gtmId: process.env.NEXT_PUBLIC_GTM_ID || null,

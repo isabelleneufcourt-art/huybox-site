@@ -53,14 +53,16 @@ export default async function NotreCentrePage() {
         </a>
       </Section>
 
-      <Section id="visite-virtuelle">
-        <SectionHeading
-          eyebrow="Visite virtuelle"
-          title="Découvrez notre centre en vidéo"
-          description="De l'entrée aux box, pour vous rendre compte de la propreté, de la sécurité et de l'accessibilité, avant même de vous déplacer."
-        />
-        <VideoEmbed videoUrl={settings.virtualTourVideoUrl} thumbnailUrl={settings.virtualTourThumbnail} />
-      </Section>
+      {settings.virtualTourEnabled && settings.virtualTourVideoUrl && (
+        <Section id="visite-virtuelle">
+          <SectionHeading
+            eyebrow="Visite virtuelle"
+            title="Découvrez notre centre en vidéo"
+            description="De l'entrée aux box, pour vous rendre compte de la propreté, de la sécurité et de l'accessibilité, avant même de vous déplacer."
+          />
+          <VideoEmbed videoUrl={settings.virtualTourVideoUrl} thumbnailUrl={settings.virtualTourThumbnail} />
+        </Section>
+      )}
 
       <Section tone="neutral">
         <SectionHeading eyebrow="Galerie" title="Le centre en images" />

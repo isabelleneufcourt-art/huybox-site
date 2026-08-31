@@ -32,13 +32,14 @@ export default async function HomePage() {
         phoneNumber={settings.phoneNumber}
         phoneNumberDisplay={settings.phoneNumberDisplay}
         city={settings.addressCity}
+        hasVirtualTour={settings.virtualTourEnabled && Boolean(settings.virtualTourVideoUrl)}
       />
 
       <Section tone="neutral">
         <TrustBadges />
       </Section>
 
-      {settings.virtualTourEnabled && (
+      {settings.virtualTourEnabled && settings.virtualTourVideoUrl && (
         <Section id="visite-virtuelle">
           <div className="grid items-center gap-10 lg:grid-cols-2">
             <VideoEmbed

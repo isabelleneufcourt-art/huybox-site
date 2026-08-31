@@ -44,9 +44,7 @@ export const getSiteSettings = cache(async (): Promise<SiteSettingsData> => {
       "https://www.google.com/maps?q=Bruxelles&output=embed",
     heroTitle: "Box de stockage sécurisés, disponibles 7j/7",
     heroSubtitle: "Accès 7j/7 · Sans engagement · Sécurisé 24h/24",
-    virtualTourVideoUrl:
-      process.env.NEXT_PUBLIC_VIRTUAL_TOUR_VIDEO_URL ??
-      "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    virtualTourVideoUrl: process.env.NEXT_PUBLIC_VIRTUAL_TOUR_VIDEO_URL ?? "",
     virtualTourThumbnail: null,
     virtualTourEnabled: true,
     ga4Id: process.env.NEXT_PUBLIC_GA4_ID || null,

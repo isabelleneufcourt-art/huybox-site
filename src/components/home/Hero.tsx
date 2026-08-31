@@ -8,9 +8,10 @@ interface HeroProps {
   phoneNumber: string;
   phoneNumberDisplay: string;
   city: string;
+  hasVirtualTour: boolean;
 }
 
-export function Hero({ title, subtitle, phoneNumber, phoneNumberDisplay, city }: HeroProps) {
+export function Hero({ title, subtitle, phoneNumber, phoneNumberDisplay, city, hasVirtualTour }: HeroProps) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-primary-dark to-primary text-white">
       <div className="container-page relative z-10 py-16 sm:py-24">
@@ -25,8 +26,13 @@ export function Hero({ title, subtitle, phoneNumber, phoneNumberDisplay, city }:
             <Button href="/box-tarifs" variant="secondary" size="lg">
               Voir les box &amp; tarifs
             </Button>
-            <Button href="/notre-centre#visite-virtuelle" variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              Faire la visite virtuelle
+            <Button
+              href={hasVirtualTour ? "/notre-centre#visite-virtuelle" : "/notre-centre"}
+              variant="outline"
+              size="lg"
+              className="border-white text-white hover:bg-white/10"
+            >
+              {hasVirtualTour ? "Faire la visite virtuelle" : "Découvrir le centre"}
             </Button>
           </div>
 

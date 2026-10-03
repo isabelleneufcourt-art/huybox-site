@@ -36,7 +36,7 @@ export default function CgvPage() {
         </section>
         <section>
           <h2 className="text-xl">4. Résiliation</h2>
-          <p>Les modalités de résiliation et de préavis sont précisées dans le contrat signé au bâtiment.</p>
+          <p>Les modalités de résiliation et de préavis sont précisées dans le contrat signé.</p>
         </section>
       </div>
     </Section>

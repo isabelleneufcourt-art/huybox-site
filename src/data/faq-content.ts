@@ -74,7 +74,7 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
     category: "Tarifs & contrats",
     question: "Quel est le délai de préavis pour résilier ?",
     answer:
-      "Le préavis est précisé dans votre contrat signé au bâtiment. Contactez-nous pour connaître les modalités exactes.",
+      "Le préavis est précisé dans votre contrat signé. Contactez-nous pour connaître les modalités exactes.",
   },
   {
     category: "Tarifs & contrats",

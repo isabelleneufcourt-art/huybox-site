@@ -39,7 +39,7 @@ export default async function ContactPage() {
                 </a>
               </li>
             </ul>
-            <MapEmbed embedUrl={settings.googleMapsEmbedUrl} className="aspect-video" />
+            <MapEmbed embedUrl={settings.googleMapsEmbedUrl} address={`${settings.addressStreet}, ${settings.addressCity}, ${settings.addressCountry}`} className="aspect-video" />
             <a href="/notre-batiment#visite-virtuelle" className="inline-block text-sm font-semibold text-primary hover:underline">
               Voir la visite virtuelle du bâtiment →
             </a>

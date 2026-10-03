@@ -37,11 +37,10 @@ export default async function NotreBatimentPage() {
             </p>
             <p>
               Locaux récents, entretenus régulièrement et pensés pour la tranquillité de nos
-              clients : circulation aisée, chariots disponibles et zone de chargement dédiée à
-              l'entrée du bâtiment.
+              clients : circulation aisée et chariots disponibles.
             </p>
           </div>
-          <MapEmbed embedUrl={settings.googleMapsEmbedUrl} className="aspect-video lg:aspect-auto lg:h-full" />
+          <MapEmbed embedUrl={settings.googleMapsEmbedUrl} address={`${settings.addressStreet}, ${settings.addressCity}, ${settings.addressCountry}`} className="aspect-video lg:aspect-auto lg:h-full" />
         </div>
         <a
           href={`https://www.google.com/maps/dir/?api=1&destination=${mapsSearchQuery}`}

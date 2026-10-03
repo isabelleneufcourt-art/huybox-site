@@ -38,3 +38,8 @@ WHERE "answer" = 'L''accès se fait via un code personnel, un badge ou un interp
 UPDATE "FaqItem"
 SET "answer" = 'En cas de sinistre, contactez-nous immédiatement au 0475 89 07 88 ainsi que votre assureur pour déclarer le sinistre.'
 WHERE "question" = 'Que se passe-t-il en cas de sinistre ?';
+
+-- Retire la mention "zone de chargement dédiée".
+UPDATE "FaqItem"
+SET "answer" = 'Oui, vous pouvez venir accompagné pour déposer vos affaires.'
+WHERE "answer" = 'Oui, vous pouvez venir accompagné et utiliser la zone de chargement dédiée à l''entrée du bâtiment.';

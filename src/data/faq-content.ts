@@ -111,7 +111,7 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
   {
     category: "Accès & sécurité",
     question: "Puis-je venir accompagné pour déposer mes affaires ?",
-    answer: "Oui, vous pouvez venir accompagné et utiliser la zone de chargement dédiée à l'entrée du bâtiment.",
+    answer: "Oui, vous pouvez venir accompagné pour déposer vos affaires.",
   },
   // Assurance
   {

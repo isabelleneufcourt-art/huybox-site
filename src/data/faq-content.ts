@@ -51,12 +51,12 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
     category: "Tarifs & contrats",
     question: "Quel est le tarif d'un box ?",
     answer:
-      "Le tarif est unique : 8 €/m³/mois TVAC, quelle que soit la taille du box choisie (8, 10 ou 15 m³).",
+      "Nos box sont proposés à 75 €/mois pour 8 m³, 90 €/mois pour 10 m³ et 125 €/mois pour 15 m³ (TVAC).",
   },
   {
     category: "Tarifs & contrats",
     question: "Y a-t-il des frais de dossier ou des frais cachés ?",
-    answer: "Non, seul le loyer mensuel du box s'applique, au tarif de 8 €/m³/mois TVAC.",
+    answer: "Non, seul le loyer mensuel du box s'applique, au tarif de la taille de box choisie (TVAC).",
   },
   {
     category: "Tarifs & contrats",
@@ -91,7 +91,7 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
     category: "Accès & sécurité",
     question: "Comment fonctionne le contrôle d'accès ?",
     answer:
-      "L'accès se fait via un code personnel, un badge ou un interphone selon les zones du bâtiment, attribué au moment de la signature du contrat.",
+      "L'accès au bâtiment se fait par badge, remis au moment de la signature du contrat.",
   },
   {
     category: "Accès & sécurité",
@@ -130,7 +130,7 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
     category: "Assurance",
     question: "Que se passe-t-il en cas de sinistre ?",
     answer:
-      "En cas de sinistre, contactez immédiatement notre équipe au bâtiment ainsi que votre assureur pour déclarer le sinistre.",
+      "En cas de sinistre, contactez-nous immédiatement au 0475 89 07 88 ainsi que votre assureur pour déclarer le sinistre.",
   },
   // Déménagement / stockage
   {

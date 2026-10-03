@@ -8,9 +8,8 @@ function parseBoxForm(formData: FormData) {
   return {
     name: String(formData.get("name") ?? "").trim(),
     volumeM3: Number(formData.get("volumeM3")),
-    dimensions: String(formData.get("dimensions") ?? "").trim() || null,
     equivalence: String(formData.get("equivalence") ?? "").trim() || null,
-    pricePerM3: Number(formData.get("pricePerM3")) || 8,
+    monthlyPrice: Number(formData.get("monthlyPrice")) || 0,
     sortOrder: Number(formData.get("sortOrder")) || 0,
     active: formData.get("active") === "on",
   };

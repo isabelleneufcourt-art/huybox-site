@@ -84,15 +84,14 @@ export function initHuyboxSimulator() {
 
   // Tailles de box réellement disponibles chez Huybox (hauteur sous plafond 2,5 m)
   var BOX_HEIGHT = 2.5;
-  var PRICE_PER_M3 = 8; // €/m³/mois
+  var BOX_PRICES = { 8: 75, 10: 90, 15: 125 }; // €/mois TVAC par taille de box
   var BOXES = [
     {vol:8,  m2:8/2.5,  l:2, w:1.6},
     {vol:10, m2:10/2.5, l:2, w:2},
     {vol:15, m2:15/2.5, l:2, w:3}
   ];
-  BOXES.forEach(function(b){ b.price = b.vol * PRICE_PER_M3; });
+  BOXES.forEach(function(b){ b.price = BOX_PRICES[b.vol]; });
 
-  var MARGIN = 1.15; // marge d'accès / circulation
   var GAUGE_MAX = 20; // m3, échelle visuelle de la jauge
 
   // Cherche la combinaison de box (parmi 8 / 10 / 15 m³) qui couvre le volume
@@ -131,7 +130,7 @@ export function initHuyboxSimulator() {
   }
 
   function comboPrice(combo){
-    return (combo.n15*15 + combo.n10*10 + combo.n8*8) * PRICE_PER_M3;
+    return combo.n15*BOX_PRICES[15] + combo.n10*BOX_PRICES[10] + combo.n8*BOX_PRICES[8];
   }
 
   // ---------- Scène isométrique "box rempli" ----------
@@ -991,7 +990,6 @@ export function initHuyboxSimulator() {
       var el = document.createElement('div');
       el.className = 'tier-card' + (count > 0 ? ' current' : '');
       el.innerHTML = '<div class="t-name">Box '+b.vol+' m³'+(count>1 ? ' <span style="color:var(--red)">×'+count+'</span>' : '')+'</div>' +
-        '<div class="t-dims">'+fmt(b.l)+' × '+fmt(b.w)+' m</div>' +
         '<div class="t-m2">≈ '+fmt(b.m2)+' m² au sol</div>' +
         '<div class="t-price">'+fmt(b.price)+' €/mois</div>' +
         '<div class="t-vol">Hauteur '+fmt(BOX_HEIGHT)+' m</div>';
@@ -1004,7 +1002,7 @@ export function initHuyboxSimulator() {
 
     var totals = computeTotals();
     var raw = totals.total;
-    var recommended = raw * MARGIN;
+    var recommended = raw;
     var combo = bestCombo(recommended);
 
     document.getElementById('volRaw').textContent = fmt(raw);
@@ -1014,7 +1012,7 @@ export function initHuyboxSimulator() {
     if (itemCount === 0){
       subtext.textContent = 'Ajoutez des objets pour commencer';
     } else {
-      subtext.textContent = itemCount + ' objet' + (itemCount>1?'s':'') + ' — volume conseillé avec marge : ' + fmt(recommended) + ' m³';
+      subtext.textContent = itemCount + ' objet' + (itemCount>1?'s':'') + '';
     }
 
     var pct = Math.min(100, (recommended / GAUGE_MAX) * 100);
@@ -1030,7 +1028,7 @@ export function initHuyboxSimulator() {
     } else {
       recoName.textContent = comboLabel(combo);
       recoM2.textContent = 'Surface indicative ≈ ' + fmt(comboM2(combo)) + ' m² au sol · ' + fmt(recommended) + ' m³ recommandés';
-      recoPrice.innerHTML = 'Soit <b>' + fmt(comboPrice(combo)) + ' €</b> / mois <span style="font-weight:600;color:#c7d3e0;">(' + PRICE_PER_M3 + ' €/m³/mois)</span>';
+      recoPrice.innerHTML = 'Soit <b>' + fmt(comboPrice(combo)) + ' €</b> / mois';
     }
 
     var breakdown = document.getElementById('breakdown');
@@ -1052,7 +1050,6 @@ export function initHuyboxSimulator() {
     }
 
     renderTiersGrid(itemCount === 0 ? null : combo);
-    renderIsoScene(qty, customItems, itemCount === 0 ? null : combo);
   }
 
   document.getElementById('resetBtn').addEventListener('click', function(){

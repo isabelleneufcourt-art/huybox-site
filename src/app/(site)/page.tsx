@@ -15,7 +15,7 @@ import { localBusinessJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Box de stockage sécurisés",
   description:
-    "Louez un box de self-stockage sécurisé, accessible 7j/7. 3 tailles disponibles (8, 10, 15 m³), tarif unique 8 €/m³/mois. Vérifiez les disponibilités par téléphone.",
+    "Louez un box de self-stockage sécurisé, accessible 7j/7. 3 tailles disponibles : 8 m³ à 75 €/mois, 10 m³ à 90 €/mois, 15 m³ à 125 €/mois. Vérifiez les disponibilités par téléphone.",
 };
 
 export default async function HomePage() {
@@ -66,8 +66,8 @@ export default async function HomePage() {
       <Section tone="neutral">
         <SectionHeading
           eyebrow="Nos box"
-          title="3 tailles, un tarif unique"
-          description="8 €/m³/mois TVAC, quelle que soit la taille du box. Pas de frais cachés."
+          title="3 tailles, des tarifs clairs"
+          description="Un prix mensuel fixe par box, TVAC. Pas de frais cachés."
           center
         />
         <div className="grid gap-6 sm:grid-cols-3">

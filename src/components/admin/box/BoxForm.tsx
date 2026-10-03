@@ -41,43 +41,31 @@ export function BoxForm({
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="dimensions" className={labelClass}>
-            Dimensions indicatives (optionnel)
-          </label>
-          <input
-            id="dimensions"
-            name="dimensions"
-            defaultValue={defaultValues?.dimensions ?? ""}
-            className={inputClass}
-            placeholder="2,5 x 2 x 2 m"
-          />
-        </div>
-        <div>
           <label htmlFor="equivalence" className={labelClass}>
-            Équivalence indicative (optionnel)
+            Texte libre sous le volume (optionnel)
           </label>
           <input
             id="equivalence"
             name="equivalence"
             defaultValue={defaultValues?.equivalence ?? ""}
             className={inputClass}
-            placeholder="Idéal pour un studio"
+            placeholder=""
           />
         </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
-          <label htmlFor="pricePerM3" className={labelClass}>
-            Prix au m³/mois (€ TVAC)
+          <label htmlFor="monthlyPrice" className={labelClass}>
+            Prix par mois (€ TVAC)
           </label>
           <input
-            id="pricePerM3"
-            name="pricePerM3"
+            id="monthlyPrice"
+            name="monthlyPrice"
             type="number"
-            step="0.5"
+            step="1"
             min="0"
-            defaultValue={defaultValues?.pricePerM3 ?? 8}
+            defaultValue={defaultValues?.monthlyPrice ?? 0}
             className={inputClass}
           />
         </div>

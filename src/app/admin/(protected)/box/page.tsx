@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Plus, Pencil, Trash2 } from "lucide-react";
 import { prisma } from "@/lib/prisma";
-import { formatEuro, monthlyPrice } from "@/lib/utils";
+import { formatEuro } from "@/lib/utils";
 import { deleteBoxAction } from "@/app/admin/(protected)/box/actions";
 
 export default async function AdminBoxPage() {
@@ -36,7 +36,7 @@ export default async function AdminBoxPage() {
                 <td className="px-4 py-3 font-medium text-neutral-900">{box.name}</td>
                 <td className="px-4 py-3 text-neutral-600">{box.volumeM3} m³</td>
                 <td className="px-4 py-3 text-neutral-600">
-                  {formatEuro(monthlyPrice(box.volumeM3, box.pricePerM3))}
+                  {formatEuro(box.monthlyPrice)}
                 </td>
                 <td className="px-4 py-3">
                   <span

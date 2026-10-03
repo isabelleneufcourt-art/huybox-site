@@ -19,7 +19,7 @@ const BADGES: { icon: LucideIcon; title: string; description: string }[] = [
   {
     icon: MapPin,
     title: "Bien situé",
-    description: "Un bâtiment facilement accessible, avec zone de chargement dédiée.",
+    description: "Un bâtiment facilement accessible.",
   },
 ];
 

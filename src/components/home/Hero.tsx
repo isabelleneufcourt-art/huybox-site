@@ -17,7 +17,7 @@ export function Hero({ title, subtitle, phoneNumber, phoneNumberDisplay, city, h
       <div className="container-page relative z-10 py-16 sm:py-24">
         <div className="max-w-2xl">
           <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-medium">
-            <Warehouse className="h-4 w-4" /> Bâtiment de self-stockage à {city}
+            <Warehouse className="h-4 w-4" /> Bâtiment de self-stockage à {city} Huy
           </p>
           <h1 className="text-4xl leading-tight text-white sm:text-5xl">{title}</h1>
           <p className="mt-5 text-lg text-white/90">{subtitle}</p>

@@ -13,8 +13,9 @@ const STEPS = [
   },
   {
     icon: FileSignature,
-    title: "3. Signez au bâtiment",
-    description: "Passez au bâtiment pour signer le contrat et déposer vos affaires.",
+    title: "3. Signez votre contrat",
+    description:
+      "Passez au bâtiment, ou recevez par email un lien vers un formulaire à remplir. Nous préparons votre contrat, que vous nous renvoyez signé.",
   },
   {
     icon: KeyRound,

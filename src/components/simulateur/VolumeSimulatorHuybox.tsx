@@ -83,25 +83,6 @@ export function VolumeSimulatorHuybox() {
             <div className="reco-price" id="recoPrice" />
           </div>
 
-          <div className="fillviz-section">
-            <h3>Aperçu du remplissage</h3>
-            <div className="iso-room-wrap">
-              <svg id="isoRoom" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <radialGradient id="isoShadow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#000000" stopOpacity="0.32" />
-                    <stop offset="100%" stopColor="#000000" stopOpacity="0" />
-                  </radialGradient>
-                </defs>
-                <g id="isoRoomShell" />
-                <g id="isoItems" />
-              </svg>
-            </div>
-            <div className="iso-caption" id="isoCaption">
-              Ajoutez des objets pour visualiser le remplissage de votre box.
-            </div>
-          </div>
-
           <div className="breakdown" id="breakdown" />
 
           <div className="summary-actions">
@@ -111,8 +92,7 @@ export function VolumeSimulatorHuybox() {
           </div>
 
           <div className="disclaimer">
-            Estimation indicative incluant une marge de 15% pour l&apos;accès et la circulation
-            dans le box. Box Huybox disponibles en 8, 10 et 15 m³ (hauteur sous plafond 2,5 m) — un
+            Estimation indicative. Box Huybox disponibles en 8, 10 et 15 m³ (hauteur sous plafond 2,5 m) — un
             conseiller confirmera la solution idéale, y compris en combinant plusieurs box si
             besoin.
           </div>
@@ -122,7 +102,7 @@ export function VolumeSimulatorHuybox() {
       <section className="tiers-section">
         <h2>Nos tailles de box, en un coup d&apos;œil</h2>
         <p>
-          Nos box mesurent 2,5 m de hauteur sous plafond, au tarif de 8 €/m³/mois. Au-delà de
+          Nos box mesurent 2,5 m de hauteur sous plafond, à 75 €, 90 € ou 125 €/mois selon la taille. Au-delà de
           15 m³, nous combinons plusieurs box pour couvrir votre besoin.
         </p>
         <div className="tiers-grid" id="tiersGrid" />

@@ -1,11 +1,11 @@
 import { Check } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
-import { formatEuro, monthlyPrice } from "@/lib/utils";
+import { formatEuro } from "@/lib/utils";
 import type { BoxTypeData } from "@/lib/boxes";
 
 export function BoxCard({ box, highlight = false }: { box: BoxTypeData; highlight?: boolean }) {
-  const price = monthlyPrice(box.volumeM3, box.pricePerM3);
+  const price = box.monthlyPrice;
 
   return (
     <Card
@@ -21,16 +21,11 @@ export function BoxCard({ box, highlight = false }: { box: BoxTypeData; highligh
       {box.equivalence && <p className="mt-2 text-sm text-neutral-600">{box.equivalence}</p>}
 
       <ul className="mt-5 space-y-2 text-sm text-neutral-700">
-        {box.dimensions && (
-          <li className="flex items-center gap-2">
-            <Check className="h-4 w-4 shrink-0 text-accent" /> Dimensions indicatives : {box.dimensions}
-          </li>
-        )}
         <li className="flex items-center gap-2">
           <Check className="h-4 w-4 shrink-0 text-accent" /> Accès 7j/7, sans engagement
         </li>
         <li className="flex items-center gap-2">
-          <Check className="h-4 w-4 shrink-0 text-accent" /> Tarif unique {box.pricePerM3} €/m³/mois TVAC
+          <Check className="h-4 w-4 shrink-0 text-accent" /> Pas de frais de dossier
         </li>
       </ul>
 

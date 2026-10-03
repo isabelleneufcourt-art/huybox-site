@@ -23,7 +23,7 @@ export default function CgvPage() {
         <section>
           <h2 className="text-xl">2. Tarifs</h2>
           <p>
-            Le tarif de location est de 8 €/m³/mois TVAC, sans engagement de durée minimale, sauf
+            Le tarif de location est de 75 €/mois TVAC pour un box de 8 m³, 90 €/mois pour 10 m³ et 125 €/mois pour 15 m³, sans engagement de durée minimale, sauf
             offre promotionnelle en vigueur.
           </p>
         </section>

@@ -25,9 +25,9 @@ Notre [simulateur de volume](/simulateur) estime votre besoin à partir de la su
 
 ## Nos repères
 
-- **8 m³** : idéal pour un studio ou T1, quelques cartons et un peu de mobilier.
-- **10 m³** : convient à un T2, avec canapé, table et électroménager.
-- **15 m³** : pensé pour un T3 ou une maison, meubles volumineux compris.
+- **8 m³** : quelques cartons et un peu de mobilier.
+- **10 m³** : canapé, table et électroménager.
+- **15 m³** : meubles volumineux et contenu d'un logement complet.
 
 En cas de doute, appelez-nous : nous affinerons l'estimation ensemble et vérifierons les disponibilités.`,
   },

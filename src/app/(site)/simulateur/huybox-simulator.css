@@ -103,6 +103,7 @@
   .huybox-sim-page .hero h1{
     font-size:clamp(28px,4vw,42px);
     margin:0 0 12px;
+    color:#fff;
     font-weight:800;
     letter-spacing:-0.02em;
   }

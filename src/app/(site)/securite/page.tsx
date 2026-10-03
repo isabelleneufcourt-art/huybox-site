@@ -12,7 +12,7 @@ const DEVICES = [
   {
     icon: KeyRound,
     title: "Contrôle d'accès",
-    description: "Code personnel, badge ou interphone pour entrer dans le bâtiment et accéder à votre couloir de box.",
+    description: "Accès au bâtiment par badge personnel.",
   },
   {
     icon: BellRing,

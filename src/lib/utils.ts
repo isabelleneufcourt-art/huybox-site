@@ -15,8 +15,3 @@ const eurFormatter = new Intl.NumberFormat("fr-BE", {
 export function formatEuro(amount: number) {
   return eurFormatter.format(amount);
 }
-
-/** Prix mensuel = volume (m³) × prix au m³ (arrondi à l'euro le plus proche). */
-export function monthlyPrice(volumeM3: number, pricePerM3: number) {
-  return Math.round(volumeM3 * pricePerM3);
-}

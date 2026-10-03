@@ -38,14 +38,14 @@ export async function seedDemoData(prisma: PrismaClient) {
   });
 
   const boxes = [
-    { name: "Box 8 m³", volumeM3: 8, dimensions: "2 x 2 x 2 m", equivalence: "Idéal pour un studio ou T1", sortOrder: 1 },
-    { name: "Box 10 m³", volumeM3: 10, dimensions: "2,5 x 2 x 2 m", equivalence: "Idéal pour un T2", sortOrder: 2 },
-    { name: "Box 15 m³", volumeM3: 15, dimensions: "3,75 x 2 x 2 m", equivalence: "Idéal pour un T3 / maison", sortOrder: 3 },
+    { name: "Box 8 m³", volumeM3: 8, monthlyPrice: 75, sortOrder: 1 },
+    { name: "Box 10 m³", volumeM3: 10, monthlyPrice: 90, sortOrder: 2 },
+    { name: "Box 15 m³", volumeM3: 15, monthlyPrice: 125, sortOrder: 3 },
   ];
   for (const box of boxes) {
     const existing = await prisma.boxType.findFirst({ where: { name: box.name } });
     if (!existing) {
-      await prisma.boxType.create({ data: { ...box, pricePerM3: 8, active: true } });
+      await prisma.boxType.create({ data: { ...box, active: true } });
     }
   }
 

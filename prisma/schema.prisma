@@ -47,9 +47,9 @@ model BoxType {
   id          String   @id @default(cuid())
   name        String // ex "Box 10 m³"
   volumeM3    Float
-  dimensions  String? // ex "2,5 x 2 x 2 m" — masqué si vide
-  equivalence String? // ex "Idéal pour un studio"
-  pricePerM3  Float    @default(8) // €/m³/mois TVAC
+  dimensions  String? // plus utilisé sur le site (conservé en base)
+  equivalence String? // texte libre optionnel affiché sur la carte
+  monthlyPrice Float   @default(0) // prix du box en €/mois TVAC
   active      Boolean  @default(true)
   sortOrder   Int      @default(0)
   createdAt   DateTime @default(now())

@@ -23,7 +23,7 @@ export async function seedDemoData(prisma: PrismaClient) {
       addressStreet: process.env.NEXT_PUBLIC_ADDRESS_STREET ?? "Rue de l'Entrepôt 12",
       addressCity: process.env.NEXT_PUBLIC_ADDRESS_CITY ?? "1000 Bruxelles",
       addressCountry: process.env.NEXT_PUBLIC_ADDRESS_COUNTRY ?? "Belgique",
-      openingHours: "Ouvert 7j/7, de 6h à 23h",
+      openingHours: "Ouvert 7j/7, de 7h à 22h",
       googleMapsEmbedUrl:
         process.env.NEXT_PUBLIC_GOOGLE_MAPS_EMBED_URL ??
         "https://www.google.com/maps?q=Bruxelles&output=embed",

@@ -85,7 +85,7 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
   {
     category: "Accès & sécurité",
     question: "Quels sont les horaires d'accès au bâtiment ?",
-    answer: "Le bâtiment est accessible 7j/7, de 6h à 23h.",
+    answer: "Le bâtiment est accessible 7j/7, de 7h à 22h.",
   },
   {
     category: "Accès & sécurité",

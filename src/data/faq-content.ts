@@ -24,9 +24,9 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
   },
   {
     category: "Général",
-    question: "À qui s'adresse votre bâtiment ?",
+    question: "À qui s'adresse Huybox ?",
     answer:
-      "Notre bâtiment s'adresse à toute personne ayant besoin d'espace supplémentaire : déménagement, rénovation, désencombrement, stockage saisonnier, etc.",
+      "Huybox s'adresse à toute personne ayant besoin d'espace supplémentaire : déménagement, rénovation, désencombrement, stockage saisonnier, etc.",
   },
   {
     category: "Général",
@@ -62,7 +62,7 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
     category: "Tarifs & contrats",
     question: "Comment réserver un box ?",
     answer:
-      "La réservation se fait uniquement par téléphone : nous vérifions ensemble les disponibilités, puis vous passez au bâtiment pour signer le contrat.",
+      "La réservation se fait uniquement par téléphone : nous vérifions ensemble les disponibilités, puis, soit vous passez au bâtiment pour signer le contrat, soit nous vous envoyons un lien vers un formulaire à remplir. Nous préparons votre contrat, que vous nous renvoyez signé.",
   },
   {
     category: "Tarifs & contrats",
@@ -111,7 +111,7 @@ export const FAQ_CONTENT: FaqSeedItem[] = [
   {
     category: "Accès & sécurité",
     question: "Puis-je venir accompagné pour déposer mes affaires ?",
-    answer: "Oui, vous pouvez venir accompagné pour déposer vos affaires.",
+    answer: "Oui, vous pouvez venir accompagné.",
   },
   // Assurance
   {

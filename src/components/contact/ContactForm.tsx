@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/Button";
 
 type Status = "idle" | "loading" | "success" | "error";
 
+// Clé publique Web3Forms (envoi du formulaire par email, sans serveur).
+// À définir au build : NEXT_PUBLIC_WEB3FORMS_KEY.
+const WEB3FORMS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "";
+
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -19,16 +23,32 @@ export function ContactForm() {
     const formData = new FormData(form);
     const payload = Object.fromEntries(formData.entries());
 
+    // Honeypot rempli => on affiche un succès sans rien envoyer (bots).
+    if (payload.website) {
+      setStatus("success");
+      return;
+    }
+
     try {
-      const res = await fetch("/api/contact", {
+      if (!WEB3FORMS_KEY) throw new Error("Formulaire indisponible pour le moment. Merci de nous appeler.");
+
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...payload, source: "site" }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Nouveau message du site Huybox — ${payload.firstName} ${payload.lastName}`,
+          from_name: "Site Huybox",
+          name: `${payload.firstName} ${payload.lastName}`,
+          email: payload.email,
+          phone: payload.phone || "—",
+          message: payload.message,
+        }),
       });
 
-      if (!res.ok) {
-        const data = await res.json().catch(() => null);
-        throw new Error(data?.error ?? "Une erreur est survenue.");
+      const data = await res.json().catch(() => null);
+      if (!res.ok || !data?.success) {
+        throw new Error("L'envoi a échoué. Merci de réessayer ou de nous appeler.");
       }
 
       setStatus("success");

@@ -18,6 +18,8 @@ const STATIC_ROUTES = [
   "/cookies",
 ];
 
+export const dynamic = "force-static";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getBlogPosts();
 

@@ -1,6 +1,3 @@
-import { cache } from "react";
-import { prisma } from "@/lib/prisma";
-
 export type BoxTypeData = {
   id: string;
   name: string;
@@ -12,56 +9,16 @@ export type BoxTypeData = {
   sortOrder: number;
 };
 
-const FALLBACK_BOXES: BoxTypeData[] = [
-  {
-    id: "fallback-8",
-    name: "Box 8 m³",
-    volumeM3: 8,
-    dimensions: null,
-    equivalence: null,
-    monthlyPrice: 75,
-    active: true,
-    sortOrder: 1,
-  },
-  {
-    id: "fallback-10",
-    name: "Box 10 m³",
-    volumeM3: 10,
-    dimensions: null,
-    equivalence: null,
-    monthlyPrice: 90,
-    active: true,
-    sortOrder: 2,
-  },
-  {
-    id: "fallback-15",
-    name: "Box 15 m³",
-    volumeM3: 15,
-    dimensions: null,
-    equivalence: null,
-    monthlyPrice: 125,
-    active: true,
-    sortOrder: 3,
-  },
+const BOXES: BoxTypeData[] = [
+  { id: "box-8", name: "Box 8 m³", volumeM3: 8, dimensions: null, equivalence: null, monthlyPrice: 75, active: true, sortOrder: 1 },
+  { id: "box-10", name: "Box 10 m³", volumeM3: 10, dimensions: null, equivalence: null, monthlyPrice: 90, active: true, sortOrder: 2 },
+  { id: "box-15", name: "Box 15 m³", volumeM3: 15, dimensions: null, equivalence: null, monthlyPrice: 125, active: true, sortOrder: 3 },
 ];
 
-/**
- * Les 3 tailles de box, lues depuis la base (gérées en back-office). Si la
- * base n'est pas encore seedée, on retombe sur les 3 tailles par défaut du
- * cahier des charges (8 m³ à 75 €, 10 m³ à 90 €, 15 m³ à 125 €/mois).
- */
-export const getBoxTypes = cache(async (): Promise<BoxTypeData[]> => {
-  try {
-    const boxes = await prisma.boxType.findMany({
-      where: { active: true },
-      orderBy: { sortOrder: "asc" },
-    });
-    if (boxes.length > 0) return boxes;
-  } catch {
-    // base pas encore migrée/seedée — on utilise le fallback ci-dessous
-  }
-  return FALLBACK_BOXES;
-});
+/** Les 3 tailles de box et leurs prix mensuels TVAC (à modifier ici). */
+export async function getBoxTypes(): Promise<BoxTypeData[]> {
+  return BOXES.filter((box) => box.active).sort((a, b) => a.sortOrder - b.sortOrder);
+}
 
 /** Retourne la box active dont le volume est le plus proche du volume donné. */
 export function closestBox(boxes: BoxTypeData[], targetVolumeM3: number): BoxTypeData {

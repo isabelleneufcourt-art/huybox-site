@@ -1,48 +1,14 @@
-import { cache } from "react";
-import { prisma } from "@/lib/prisma";
-import { BLOG_CONTENT } from "@/data/blog-content";
+import { BLOG_CONTENT, type BlogPostData as BlogPostSource } from "@/data/blog-content";
 
-export type BlogPostData = {
-  id: string;
-  slug: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  category: string;
-  coverImage: string | null;
-  publishedAt: Date;
-  metaTitle: string | null;
-  metaDescription: string | null;
-};
+export type BlogPostData = Omit<BlogPostSource, "publishedAt"> & { publishedAt: Date };
 
-function fallbackPosts(): BlogPostData[] {
-  const now = Date.now();
-  return BLOG_CONTENT.map((post, i) => ({
-    id: `fallback-${i}`,
-    slug: post.slug,
-    title: post.title,
-    excerpt: post.excerpt,
-    content: post.content,
-    category: post.category,
-    coverImage: null,
-    publishedAt: new Date(now - post.daysAgo * 24 * 60 * 60 * 1000),
-    metaTitle: null,
-    metaDescription: post.excerpt,
-  }));
+function toPost(post: BlogPostSource): BlogPostData {
+  return { ...post, publishedAt: new Date(post.publishedAt) };
 }
 
-export const getBlogPosts = cache(async (): Promise<BlogPostData[]> => {
-  try {
-    const posts = await prisma.blogPost.findMany({
-      where: { published: true },
-      orderBy: { publishedAt: "desc" },
-    });
-    if (posts.length > 0) return posts;
-  } catch {
-    // base pas encore migrée/seedée
-  }
-  return fallbackPosts();
-});
+export async function getBlogPosts(): Promise<BlogPostData[]> {
+  return BLOG_CONTENT.map(toPost).sort((a, b) => b.publishedAt.getTime() - a.publishedAt.getTime());
+}
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPostData | null> {
   const posts = await getBlogPosts();

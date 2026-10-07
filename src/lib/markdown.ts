@@ -1,7 +1,7 @@
 /**
  * Rendu Markdown volontairement minimal (pas de dépendance externe) :
  * titres ##, gras **, liens [texte](url), listes -/1. et paragraphes.
- * Suffisant pour les articles de blog édités depuis /admin/blog.
+ * Suffisant pour les articles de blog écrits dans src/data/blog-content.ts.
  */
 function inline(text: string): string {
   return text

@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      { protocol: "https", hostname: "images.unsplash.com" },
-      { protocol: "https", hostname: "i.ytimg.com" },
-    ],
-  },
+  // Site 100 % statique : `next build` produit le dossier `out/`, à déposer
+  // sur n'importe quel hébergement de fichiers (Cloudflare Pages, one.com…).
+  output: "export",
+  trailingSlash: true,
+  images: { unoptimized: true },
 };
 
 export default nextConfig;
